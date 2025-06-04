@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback - PreMaxWatches</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://i.ibb.co/PGb3M43T/Black-Gold-Elegant-Luxury-Watch-Shop-Logo-removebg-preview.png"
+      type="image/png"
+    />
+    <style>
+        body {
+            background-color: #000000; /* Black background */
+            color:red;/* Gold text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: red; /* Gold heading */
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            color: #eee;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        form input,
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+        form input[type="submit"] {
+            background-color:red;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+        }
+        form input[type="submit"]:hover {
+            background-color: red;
+        }
+        .rating-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .rating-container p {
+            color:red;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .rating-container label {
+            margin: 0 5px;
+            font-size: 24px;
+            color:red;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .rating-container input {
+            display: none;
+        }
+        .rating-container label:hover,
+        .rating-container label:hover ~ label,
+        .rating-container input:checked ~ label {
+            color:red;
+        }
+        .rating-display {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            color:red;
+            font-family: 'Roboto', sans-serif;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #FFD700;
+            color: #d91d14;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Responsive toggle styles can be added if needed */
+    </style>
+</head>
+<body>
+  <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">☰</label>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="https://i.ibb.co/PGb3M43T/Black-Gold-Elegant-Luxury-Watch-Shop-Logo-removebg-preview.png" alt="PreMaxWatches Logo" class="logo-img">
+            </a>
+            <label class="logo-text">PreMaxWatches</label>
+        </div>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <h1>We Value Your Feedback!</h1>
+    <p>Let us know how we’re doing and how we can improve your PreMaxWatches experience.</p>
+
+    <form action="https://formspree.io/f/xrbzjabe" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+
+        <div class="rating-container">
+            <p>Rate your experience:</p>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" title="1 star">★</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="2 stars">★</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="3 stars">★</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="4 stars">★</label>
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="5 stars">★</label>
+        </div>
+
+        <div class="rating-display">
+            <p id="rating-display">Selected Rating: None</p>
+        </div>
+
+        <textarea name="feedback" rows="5" placeholder="Your Feedback" required></textarea>
+        <input type="submit" value="Submit Feedback" />
+    </form>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<footer>
+    <p>&copy; 2025 PreMaxWatches. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // JavaScript to handle star rating display
+    document.querySelectorAll('.rating-container input').forEach((radio) => {
+        radio.addEventListener('change', function () {
+            const selectedRating = this.value;
+            document.getElementById('rating-display').textContent = `Selected Rating: ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
+        });
+    });
+</script>
+</body>
+</html>
