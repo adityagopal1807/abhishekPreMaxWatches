@@ -14,27 +14,7 @@
             margin: 0;
             padding: 0;
         }
-        nav {
-            background-color: #111;
-        }
-        nav .logo-container .logo-img {
-            height: 50px;
-            vertical-align: middle;
-        }
-        nav .logo-text {
-            color: #FFD700;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-        nav ul li a {
-            color: #FFD700;
-        }
-        nav ul li a.active {
-            border-bottom: 2px solid #FFD700;
-        }
+       
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -99,23 +79,24 @@
 </head>
 <body>
 
-<nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">☰</label>
-    <div class="logo-container">
-        <img src="https://i.ibb.co/PGb3M43T/Black-Gold-Elegant-Luxury-Watch-Shop-Logo-removebg-preview.png" alt="PreMaxWatches Logo" class="logo-img">
-        <label class="logo-text">PreMaxWatches</label>
-    </div>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="product.html">Products</a></li>
-        <li><a class="active" href="cart.html">Cart</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-    </ul>
-</nav>
+ <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">☰</label>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="https://i.ibb.co/PGb3M43T/Black-Gold-Elegant-Luxury-Watch-Shop-Logo-removebg-preview.png" alt="PreMaxWatches Logo" class="logo-img">
+            </a>
+            <label class="logo-text">PreMaxWatches</label>
+        </div>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
 
 <div class="container">
     <h1>Your Cart</h1>
