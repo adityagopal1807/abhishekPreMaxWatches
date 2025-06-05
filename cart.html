@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - PreMaxWatches</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFD700;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #111;
+        }
+        nav .logo-container .logo-img {
+            height: 50px;
+            vertical-align: middle;
+        }
+        nav .logo-text {
+            color: #FFD700;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        nav ul li a {
+            color: #FFD700;
+        }
+        nav ul li a.active {
+            border-bottom: 2px solid #FFD700;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .cart-items li {
+            background-color: #1A1A1A;
+            border: 1px solid #FFD700;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-items button {
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cart-items button:hover {
+            background-color: #e6c200;
+        }
+        .cart-total {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .checkout-button {
+            background-color: #FFD700;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .checkout-button:hover {
+            background-color: #e6c200;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #FFD700;
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">☰</label>
+    <div class="logo-container">
+        <img src="https://i.ibb.co/PGb3M43T/Black-Gold-Elegant-Luxury-Watch-Shop-Logo-removebg-preview.png" alt="PreMaxWatches Logo" class="logo-img">
+        <label class="logo-text">PreMaxWatches</label>
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a class="active" href="cart.html">Cart</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Your Cart</h1>
+    <ul class="cart-items" id="cartItems"></ul>
+    <div class="cart-total">Total: ₹<span id="cartTotal">0</span></div>
+    <button class="checkout-button" onclick="placeOrder()">Place Order</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 PreMaxWatches. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCartDisplay() {
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<li>Your cart is empty.</li>';
+            cartTotal.innerText = '0';
+            return;
+        }
+
+        cart.forEach((item, index) => {
+            cartItems.innerHTML += `
+                <li>
+                    ${item.product} - ₹${item.price}
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </li>
+            `;
+            total += item.price;
+        });
+
+        cartTotal.innerText = total;
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    function placeOrder() {
+        if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+
+        let orderDetails = 'Thank you for shopping with PreMaxWatches!\n\nYou have ordered:\n';
+        let totalAmount = 0;
+
+        cart.forEach(item => {
+            orderDetails += `- ${item.product} (₹${item.price})\n`;
+            totalAmount += item.price;
+        });
+
+        orderDetails += `\nTotal Amount: ₹${totalAmount}\nWe will contact you soon with confirmation details.`;
+
+        alert(orderDetails);
+        cart = [];
+        localStorage.removeItem('cart');
+        updateCartDisplay();
+    }
+
+    updateCartDisplay();
+</script>
+
+</body>
+</html>
